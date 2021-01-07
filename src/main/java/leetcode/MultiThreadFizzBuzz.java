@@ -7,7 +7,7 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.IntConsumer;
 
-public class MultithreadFizzBuzz {
+public class MultiThreadFizzBuzz {
 
     public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzz(15);
