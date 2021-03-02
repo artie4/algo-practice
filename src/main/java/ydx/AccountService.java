@@ -3,12 +3,15 @@ package ydx;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class AccountService {
 
     public static final Map<String, Account> accounts = new HashMap<>();
+    static BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>();
 
     static {
         accounts.put("Germiona", new Account(0));
@@ -36,10 +39,32 @@ public class AccountService {
             Account.transfer(accounts.get("Harry"), accounts.get("Neville"), 100);
         };
 
-        for (int i = 0; i < 5; i++) {
-            new Thread(harryToGerm).start();
-            new Thread(harryToRon).start();
-            new Thread(harryToNeville).start();
+        Runnable runnable1 = () -> {
+            for (int i = 0; i < 5; i++) {
+                queue.offer(harryToRon);
+            }
+        };
+
+        Runnable runnable2 = () -> {
+            for (int i = 0; i < 5; i++) {
+                queue.offer(harryToGerm);
+            }
+        };
+
+        Runnable runnable3 = () -> {
+            for (int i = 0; i < 5; i++) {
+                queue.offer(harryToNeville);
+            }
+        };
+
+        new Thread(runnable1).start();
+        new Thread(runnable2).start();
+        new Thread(runnable3).start();
+
+        TimeUnit.MILLISECONDS.sleep(1500);
+
+        while(!queue.isEmpty()) {
+            queue.poll().run();
         }
 
         TimeUnit.MILLISECONDS.sleep(1500);
@@ -49,5 +74,4 @@ public class AccountService {
         System.out.println("Ron balance = " + accounts.get("Ron").getBalance());
         System.out.println("Neville balance = " + accounts.get("Neville").getBalance());
     }
-
 }
