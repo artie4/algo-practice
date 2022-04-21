@@ -22,8 +22,8 @@ fun deleteNode(node: ListNode?) {
 fun main() {
     val nodeForDeletion = ListNode(3).apply { next = ListNode(4).apply { next = ListNode(5) } }
     val tree1 = ListNode(2).apply { next = nodeForDeletion }
-    Utils.traverseTree(tree1)
+    Utils.traverseLinkedList(tree1)
     deleteNode(nodeForDeletion)
-    Utils.traverseTree(tree1)
+    Utils.traverseLinkedList(tree1)
     assert(tree1.next!!.`val` == 4)
 }
