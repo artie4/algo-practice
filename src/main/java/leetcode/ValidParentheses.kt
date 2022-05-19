@@ -1,6 +1,6 @@
 package leetcode
 
-import java.util.*
+import java.util.Stack
 
 class ValidParentheses {
     fun isValid(s: String): Boolean {
