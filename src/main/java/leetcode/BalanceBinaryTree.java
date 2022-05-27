@@ -2,22 +2,19 @@ package leetcode;
 
 import leetcode.algo_1_path.TreeNode;
 
-import java.util.Stack;
-
 public class BalanceBinaryTree {
 
     public static boolean isBalanced(TreeNode root) {
-        if (root == null) return true;
-        return checkHeight(root) != -1;
+        return getHeight(root) != -1;
     }
 
-    public static int checkHeight(TreeNode root) {
+    public static int getHeight(TreeNode root) {
         if (root == null) return 0;
-        int l = checkHeight(root.getLeft());
-        int r = checkHeight(root.getRight());
-
-        if (l == -1 || r == -1 || Math.abs(l - r) > 1) return -1;
-        return Math.max(l, r) + 1;
+        int leftHeight = getHeight(root.getLeft());
+        if (leftHeight == -1) return -1;
+        int rightHeight = getHeight(root.getRight());
+        if (rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) return -1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     public static void main(String[] args) {
