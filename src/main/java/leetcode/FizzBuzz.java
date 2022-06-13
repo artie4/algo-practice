@@ -32,6 +32,11 @@ public class FizzBuzz {
     }
 
     public static void main(String[] args) {
-
+        FizzBuzz inst = new FizzBuzz();
+        assert(inst.fizzBuzz(15).get(0).equals("1"));
+        assert(inst.fizzBuzz(15).get(1).equals("2"));
+        assert(inst.fizzBuzz(15).get(2).equals("Fizz"));
+        assert(inst.fizzBuzz(15).get(4).equals("Buzz"));
+        assert(inst.fizzBuzz(15).get(14).equals("FizzBuzz"));
     }
 }
