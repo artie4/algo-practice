@@ -1,5 +1,7 @@
 package leetcode.algo_1_path;
 
+import model.TreeNode
+
 
 class MergeTwoBinaryTrees {}
 
@@ -22,9 +24,4 @@ fun mergeTrees(root1: TreeNode?, root2: TreeNode?): TreeNode? {
     root1.left = mergeTrees(root1.left, root2.left)
     root1.right = mergeTrees(root1.right, root2.right)
     return root1
-}
-
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
 }

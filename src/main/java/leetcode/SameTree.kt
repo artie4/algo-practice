@@ -1,6 +1,6 @@
 package leetcode
 
-import leetcode.algo_1_path.TreeNode
+import model.TreeNode
 import java.util.Queue
 import java.util.LinkedList
 

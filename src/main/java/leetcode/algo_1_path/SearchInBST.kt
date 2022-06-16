@@ -1,5 +1,7 @@
 package leetcode.algo_1_path
 
+import model.TreeNode
+
 class SearchInBST {
 }
 

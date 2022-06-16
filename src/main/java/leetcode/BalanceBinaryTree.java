@@ -1,6 +1,6 @@
 package leetcode;
 
-import leetcode.algo_1_path.TreeNode;
+import model.TreeNode;
 
 public class BalanceBinaryTree {
 
@@ -10,9 +10,9 @@ public class BalanceBinaryTree {
 
     public static int getHeight(TreeNode root) {
         if (root == null) return 0;
-        int leftHeight = getHeight(root.getLeft());
+        int leftHeight = getHeight(root.left);
         if (leftHeight == -1) return -1;
-        int rightHeight = getHeight(root.getRight());
+        int rightHeight = getHeight(root.right);
         if (rightHeight == -1 || Math.abs(leftHeight - rightHeight) > 1) return -1;
         return Math.max(leftHeight, rightHeight) + 1;
     }

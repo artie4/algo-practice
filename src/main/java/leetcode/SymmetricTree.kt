@@ -1,6 +1,6 @@
 package leetcode
 
-import leetcode.algo_1_path.TreeNode
+import model.TreeNode
 
 class SymmetricTree {
     fun isSymmetric(root: TreeNode?): Boolean {

@@ -1,5 +1,6 @@
 package leetcode.algo_1_path
 
+import model.TreeNode
 import java.util.*
 
 class BinaryTreeDepth {
