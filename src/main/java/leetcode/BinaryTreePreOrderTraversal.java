@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class BinaryTreePreOrderTraversal {
 
-    public static List<Integer> postorderTraversal(TreeNode root) {
+    public static List<Integer> preorder(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         List<Integer> result = new ArrayList<>();
         stack.push(root);
@@ -16,10 +16,10 @@ public class BinaryTreePreOrderTraversal {
             TreeNode pop = stack.pop();
             result.add(pop.val);
             if (pop.right != null) {
-                stack.add(pop.right);
+                stack.push(pop.right);
             }
             if (pop.left != null) {
-                stack.add(pop.left);
+                stack.push(pop.left);
             }
         }
         return result;
@@ -30,6 +30,6 @@ public class BinaryTreePreOrderTraversal {
                 new TreeNode(3, new TreeNode(1, null, null), new TreeNode(2, null, null)),
                 new TreeNode(7, new TreeNode(8, null, null), new TreeNode(9, null, null))
         );
-        assert(postorderTraversal(tree).equals(List.of(5, 3, 1, 2, 7, 8, 9)));
+        assert(preorder(tree).equals(List.of(5, 3, 1, 2, 7, 8, 9)));
     }
 }
