@@ -14,3 +14,14 @@ class MapSum {
         return map.filterKeys { it.startsWith(prefix) }.values.sum()
     }
 }
+
+fun main() {
+    val mapSum = MapSum()
+    mapSum.insert("mappp", 1)
+    mapSum.insert("mapp", 2)
+    mapSum.insert("map", 3)
+    mapSum.insert("ap", 3)
+    assert(mapSum.sum("map") == 6)
+    assert(mapSum.sum("p") == 0)
+    assert(mapSum.sum("ap") == 3)
+}
