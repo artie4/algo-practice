@@ -7,18 +7,18 @@ public class JumpGameII {
         }
 
         int jumps = 0;
-        int currentLenght = nums[0];
+        int currentLength = nums[0];
         int currMaxLength = nums[0];
 
         for (int i = 1; i < nums.length - 1; ++i) {
-            currentLenght--;
+            currentLength--;
             currMaxLength--;
             if (nums[i] > currMaxLength) {
                 currMaxLength = nums[i];
             }
-            if (currentLenght == 0) {
+            if (currentLength == 0) {
                 jumps++;
-                currentLenght = currMaxLength;
+                currentLength = currMaxLength;
             }
         }
         return jumps + 1;
