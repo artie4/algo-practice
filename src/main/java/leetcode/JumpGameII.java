@@ -19,6 +19,7 @@ public class JumpGameII {
             if (currentLength == 0) {
                 jumps++;
                 currentLength = currMaxLength;
+                if (currentLength >= nums.length - 1 - i) break;
             }
         }
         return jumps + 1;
