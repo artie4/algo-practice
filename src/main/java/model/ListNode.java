@@ -13,4 +13,11 @@ public class ListNode {
         this(val, null);
     }
 
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                '}';
+    }
 }
