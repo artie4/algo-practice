@@ -17,4 +17,14 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    public TreeNode leftNode(TreeNode _left) {
+        left = _left;
+        return this;
+    }
+
+    public TreeNode rightNode(TreeNode _right) {
+        right = _right;
+        return this;
+    }
 }
