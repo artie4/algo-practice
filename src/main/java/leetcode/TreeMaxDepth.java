@@ -1,6 +1,5 @@
 package leetcode;
 
-import model.TreeNode;
 
 import java.util.Stack;
 
