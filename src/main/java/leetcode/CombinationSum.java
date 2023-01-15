@@ -26,18 +26,4 @@ public class CombinationSum {
         curr.removeLast();
         combo(candidates, index + 1, curr, target, combinations);
     }
-
-    private static void printResult(List<List<Integer>> result) {
-        result.forEach(list ->
-                System.out.println(list.stream().map(Object::toString).collect(Collectors.joining(","))));
-    }
-
-
-    public static void main(String[] args) {
-        CombinationSum combinationSum = new CombinationSum();
-        var result = combinationSum.combinationSum(new int[] {2,3,5}, 8);
-        printResult(result);
-        var result2 = combinationSum.combinationSum(new int[] {2,7,6,3,5,1}, 9);
-        printResult(result2);
-    }
 }
